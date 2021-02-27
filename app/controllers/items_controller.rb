@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  #index以外で ログインしていない時にトップページにリダイレクトさせる
+  before_action :authenticate_user!, except: :index
   def index
     @items = Item.all
   end
